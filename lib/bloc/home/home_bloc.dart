@@ -45,7 +45,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   FutureOr<void> homeProductWishlistButtonClickedEvent(HomeProductWishlistButtonClickedEvent event, Emitter<HomeState> emit) {
     var index = wishlistItems.indexWhere((e) => e.id == event.product.id);
     index > -1 ? wishlistItems.removeAt(index) : wishlistItems.add(event.product);
-    emit(HomeProductItemWishlistedActionState());
+    var message = index > -1 ? 'Item removed from wishlist' : 'Item added to wishlist';
+    emit(HomeProductItemWishlistedActionState(message: message));
     emit(HomeLoadedSuccessState(products: GroceryData.groceryProducts.map((e) => ProductModel.fromMap(e)).toList()));
   }
 }

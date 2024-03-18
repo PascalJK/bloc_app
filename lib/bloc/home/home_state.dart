@@ -26,4 +26,7 @@ final class HomeProductItemAddedToCartActionState extends HomeActionState {
   HomeProductItemAddedToCartActionState({required this.message});
 }
 
-final class HomeProductItemWishlistedActionState extends HomeActionState {}
+final class HomeProductItemWishlistedActionState extends HomeActionState {
+  final String message;
+  HomeProductItemWishlistedActionState({required this.message});
+}
