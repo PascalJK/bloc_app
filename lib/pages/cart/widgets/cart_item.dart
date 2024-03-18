@@ -51,7 +51,7 @@ class CartItem extends StatelessWidget {
                   style: Theme.of(context).textTheme.bodyLarge,
                 ),
                 IconButton(
-                  onPressed: () => cartBloc.add(RemovedFromCartEvent()),
+                  onPressed: () => cartBloc.add(RemoveFromCartEvent(product: model)),
                   iconSize: 22,
                   icon: const Icon(CupertinoIcons.trash_fill, color: Colors.red),
                 )
