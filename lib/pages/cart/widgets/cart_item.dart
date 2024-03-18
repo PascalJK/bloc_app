@@ -22,7 +22,7 @@ class CartItem extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            height: 250,
+            height: 160,
             decoration: BoxDecoration(
               image: DecorationImage(image: NetworkImage(model.imageUrl), fit: BoxFit.cover),
             ),
