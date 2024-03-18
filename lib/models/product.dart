@@ -17,15 +17,15 @@ class ProductModel {
   });
 
   String get getPriceString => 'N\$ $price';
-  
+
   bool get isCarted {
     if (cartItems.isEmpty) return false;
-    return cartItems.firstOrNull?.id == id;
+    return cartItems.where((c) => c.id == id).firstOrNull != null;
   }
 
   bool get isWishlisted {
     if (wishlistItems.isEmpty) return false;
-    return wishlistItems.firstOrNull?.id == id;
+    return wishlistItems.where((w) => w.id == id).firstOrNull != null;
   }
 
   factory ProductModel.fromMap(map) {
