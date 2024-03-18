@@ -13,6 +13,4 @@ final class CartSuccuessState extends CartState {
   CartSuccuessState({required this.cartItems});
 }
 
-final class CartErrorState extends CartState {}
-
-final class CartLoadingState extends CartState {}
+final class CartItemRemoved extends CartActoinState {}
