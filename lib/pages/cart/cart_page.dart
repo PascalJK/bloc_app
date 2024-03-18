@@ -47,14 +47,16 @@ class _CartPageState extends State<CartPage> {
               //   ),
               //   initialItemCount: successState.cartItems.length,
               // );
-              return ListView.builder(
-                padding: const EdgeInsets.all(10),
-                itemBuilder: (context, index) => CartItem(
-                  model: successState.cartItems[index],
-                  cartBloc: cartBloc,
-                ),
-                itemCount: successState.cartItems.length,
-              );
+              return successState.cartItems.isNotEmpty
+                  ? ListView.builder(
+                      padding: const EdgeInsets.all(10),
+                      itemBuilder: (context, index) => CartItem(
+                        model: successState.cartItems[index],
+                        cartBloc: cartBloc,
+                      ),
+                      itemCount: successState.cartItems.length,
+                    )
+                  : Center(child: Text('Empty Cart...', style: Theme.of(context).textTheme.bodyLarge));
             default:
               return const SizedBox();
           }
