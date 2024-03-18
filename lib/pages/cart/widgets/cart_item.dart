@@ -53,7 +53,7 @@ class CartItem extends StatelessWidget {
                 IconButton(
                   onPressed: () => cartBloc.add(RemovedFromCartEvent()),
                   iconSize: 22,
-                  icon: const Icon(CupertinoIcons.trash, color: Colors.red,),
+                  icon: const Icon(CupertinoIcons.trash_fill, color: Colors.red),
                 )
               ],
             ),
