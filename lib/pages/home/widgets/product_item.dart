@@ -55,12 +55,12 @@ class ProductItem extends StatelessWidget {
                     IconButton(
                       onPressed: () => homeBloc.add(HomeProductWishlistButtonClickedEvent(product: model)),
                       iconSize: 22,
-                      icon: const Icon(Icons.favorite_outline),
+                      icon: Icon(!model.isWishlisted ? Icons.favorite_outline : Icons.favorite),
                     ),
                     IconButton(
                       onPressed: () => homeBloc.add(HomeProductCartButtonClickedEvent(product: model)),
                       iconSize: 22,
-                      icon: const Icon(Icons.shopping_bag_outlined),
+                      icon: Icon(!model.isCarted ? Icons.shopping_bag_outlined : Icons.shopping_bag),
                     ),
                   ],
                 )
