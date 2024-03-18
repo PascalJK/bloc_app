@@ -1,10 +1,12 @@
+import 'package:bloc_app/bloc/home/home_bloc.dart';
 import 'package:flutter/material.dart';
 
 import '../../../models/product.dart';
 
 class ProductItem extends StatelessWidget {
   final ProductModel model;
-  const ProductItem({super.key, required this.model});
+  final HomeBloc homeBloc;
+  const ProductItem({super.key, required this.model, required this.homeBloc});
 
   @override
   Widget build(BuildContext context) {
@@ -51,12 +53,12 @@ class ProductItem extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () => homeBloc.add(HomeProductWishlistButtonClickedEvent(product: model)),
                       iconSize: 22,
                       icon: const Icon(Icons.favorite_outline),
                     ),
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () => homeBloc.add(HomeProductCartButtonClickedEvent(product: model)),
                       iconSize: 22,
                       icon: const Icon(Icons.shopping_bag_outlined),
                     ),
