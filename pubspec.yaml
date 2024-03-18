@@ -9,6 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  bloc:
+  flutter_bloc:
 
 dev_dependencies:
   flutter_test:
