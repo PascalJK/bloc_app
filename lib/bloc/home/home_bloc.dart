@@ -35,12 +35,14 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   }
 
   FutureOr<void> homeProductCartButtonClickedEvent(HomeProductCartButtonClickedEvent event, Emitter<HomeState> emit) {
-    cartItems.add(event.product);
-    emit(HomeProductItemAddedToCartActionState());
+    var index = cartItems.indexWhere((e) => e.id == event.product.id);
+    index > -1 ? cartItems.removeAt(index) : cartItems.add(event.product);
+    emit(HomeLoadedSuccessState(products: GroceryData.groceryProducts.map((e) => ProductModel.fromMap(e)).toList()));
   }
 
   FutureOr<void> homeProductWishlistButtonClickedEvent(HomeProductWishlistButtonClickedEvent event, Emitter<HomeState> emit) {
     wishlistItems.add(event.product);
     emit(HomeProductItemWishlistedActionState());
+    emit(HomeLoadedSuccessState(products: GroceryData.groceryProducts.map((e) => ProductModel.fromMap(e)).toList()));
   }
 }
