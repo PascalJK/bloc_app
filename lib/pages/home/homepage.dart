@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../bloc/home/home_bloc.dart';
 import '../cart/cart_page.dart';
 import '../wishlist/wishlist_page.dart';
+import 'widgets/product_item.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -40,7 +41,8 @@ class _HomePageState extends State<HomePage> {
             return const Scaffold(body: Center(child: CircularProgressIndicator()));
           case HomeErrorState:
             return const Scaffold(body: Center(child: Text('Something went wrong...')));
-          default:
+          case HomeLoadedSuccessState:
+            final sState = state as HomeLoadedSuccessState;
             return Scaffold(
               appBar: AppBar(
                 title: const Text('Grocery Items'),
@@ -55,7 +57,14 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
               ),
+              body: ListView.builder(
+                padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
+                itemBuilder: (context, index) => ProductItem(model: sState.products[index]),
+                itemCount: sState.products.length,
+              ),
             );
+          default:
+            return const SizedBox();
         }
       },
     );
