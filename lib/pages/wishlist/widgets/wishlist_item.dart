@@ -1,5 +1,4 @@
 import 'package:bloc_app/bloc/wishlist/wishlist_bloc.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../../models/product.dart';
@@ -52,8 +51,8 @@ class WishlistItem extends StatelessWidget {
                 ),
                 IconButton(
                   onPressed: () => wishlistBloc.add(RemoveFromWishlistEvent(product: model)),
-                  iconSize: 22,
-                  icon: const Icon(CupertinoIcons.trash_fill, color: Colors.red),
+                  iconSize: 20,
+                  icon: const Icon(Icons.favorite, color: Colors.red),
                 )
               ],
             ),
