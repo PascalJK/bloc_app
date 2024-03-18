@@ -37,6 +37,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   FutureOr<void> homeProductCartButtonClickedEvent(HomeProductCartButtonClickedEvent event, Emitter<HomeState> emit) {
     var index = cartItems.indexWhere((e) => e.id == event.product.id);
     index > -1 ? cartItems.removeAt(index) : cartItems.add(event.product);
+    var message = index > -1 ? 'Item removed from cart' : 'Item added to cart';
+    emit(HomeProductItemAddedToCartActionState(message: message));
     emit(HomeLoadedSuccessState(products: GroceryData.groceryProducts.map((e) => ProductModel.fromMap(e)).toList()));
   }
 
