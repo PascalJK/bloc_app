@@ -12,4 +12,14 @@ class ProductModel {
     required this.imageUrl,
     required this.price,
   });
+
+  factory ProductModel.fromMap(map) {
+    return ProductModel(
+      id: map['id'],
+      name: map['name'],
+      description: map['description'],
+      imageUrl: map['image_url'],
+      price: map['price']
+    );
+  }
 }
