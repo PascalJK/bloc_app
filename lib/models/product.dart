@@ -15,7 +15,7 @@ class ProductModel {
 
   factory ProductModel.fromMap(map) {
     return ProductModel(
-      id: map['id'],
+      id: map['id'].toString(),
       name: map['name'],
       description: map['description'],
       imageUrl: map['image_url'],
