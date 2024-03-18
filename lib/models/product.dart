@@ -13,13 +13,15 @@ class ProductModel {
     required this.price,
   });
 
+  String get getPriceString => 'N\$ $price';
+
   factory ProductModel.fromMap(map) {
     return ProductModel(
       id: map['id'].toString(),
       name: map['name'],
       description: map['description'],
       imageUrl: map['image_url'],
-      price: map['price']
+      price: map['price'],
     );
   }
 }
