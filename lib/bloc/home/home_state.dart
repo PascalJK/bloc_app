@@ -20,3 +20,11 @@ final class HomeErrorState extends HomeState {}
 final class HomeNavigateToWishlistPageActionState extends HomeActionState {}
 
 final class HomeNavigateToCartPageActionState extends HomeActionState {}
+
+final class HomeProductItemAddedToCartActionState extends HomeActionState {
+  // final String message;
+
+  // HomeProductItemAddedToCartActionState({required this.message});
+}
+
+final class HomeProductItemWishlistedActionState extends HomeActionState {}
