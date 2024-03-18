@@ -59,7 +59,7 @@ class _HomePageState extends State<HomePage> {
               ),
               body: ListView.builder(
                 padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
-                itemBuilder: (context, index) => ProductItem(model: sState.products[index]),
+                itemBuilder: (context, index) => ProductItem(model: sState.products[index], homeBloc: homeBloc),
                 itemCount: sState.products.length,
               ),
             );
