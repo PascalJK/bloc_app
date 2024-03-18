@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.teal,
           foregroundColor: Colors.white,
         ),
+        pageTransitionsTheme: const PageTransitionsTheme(builders: {TargetPlatform.android: CupertinoPageTransitionsBuilder()}),
       ),
       home: const HomePage(),
     );
